@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'Teuton Fett';
+  src: url('./TeutonFett.otf') format('opentype');
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+body {
+  background-color: #81221c;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  color: white;
+  text-shadow: -2px 5px 1px rgba(0, 0, 0, 0.25);
+  width: 300px;
+  height: 420px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card figure {
+  margin: 0;
+}
+
+.card h3 {
+  font-family: 'Teuton Fett', sans-serif;
+  font-size: 36px;
+  text-align: center;
+}
+
+.card .preview {
+  width: 200px;
+  height: 200px;
+  border: thick solid white;
+  border-radius: 100px;
+  background-repeat: no-repeat;
+  box-shadow: -2px 5px 1px rgba(0, 0, 0, 0.25);
+}
+
+.card.Action .preview,
+.card.Creature .preview {
+  background-position: 50% 10%;
+  background-size: 152%;
+}
+
+.card.Artifact .preview {
+  background-position: 50% 26%;
+  background-size: 160%;
+}
+
+.card.Upgrade .preview {
+  background-position: 50% 81%;
+  background-size: 146%;
+}
+
+.card .front {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card .front img {
+  opacity: 0;
+  border-radius: 22px;
+  filter: blur(22px);
+  transition: all 250ms ease-out;
+}
+
+.card.revealed {
+}
+
+.card.revealed .front img {
+  box-shadow: 0 0 10px black;
+  opacity: 1;
+  filter: blur(0);
+  transition: all 250ms ease-in;
+}
+
+.card.revealed .front img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 30px black;
+}
