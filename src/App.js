@@ -31,7 +31,20 @@ class App extends Component {
 
   render() {
     const { position } = this.state
-    return <Card {...CARDS[position]} next={this.next} />
+    return (
+      <>
+        <Card {...CARDS[position]} next={this.next} />
+        <footer>
+          <p>
+            A <strong>Keyforge Trainer</strong> to practice learning cards by name and image.
+            <em>Click or tap space to advance.</em>
+            <br />
+            The project is <a href="https://github.com/ambethia/keyforge-trainer">open source</a>. All content is &copy;
+            2018 Fantasy Flight Games.
+          </p>
+        </footer>
+      </>
+    )
   }
 }
 

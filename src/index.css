@@ -6,6 +6,7 @@
 html,
 body,
 #root {
+  margin: 0;
   height: 100vh;
 }
 
@@ -76,7 +77,8 @@ body {
   opacity: 0;
   border-radius: 22px;
   filter: blur(22px);
-  transition: all 250ms ease-out;
+  transform: scale(0) rotate(45deg);
+  transition: all 200ms ease-out;
 }
 
 .card.revealed {
@@ -86,10 +88,27 @@ body {
   box-shadow: 0 0 10px black;
   opacity: 1;
   filter: blur(0);
-  transition: all 250ms ease-in;
+  transform: scale(1) rotate(0deg);
+  transition: all 350ms ease-in;
 }
 
 .card.revealed .front img:hover {
-  transform: scale(1.2);
   box-shadow: 0 0 30px black;
+}
+
+#root > footer {
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  color: #c6bfac;
+  font-family: sans-serif;
+  padding: 0.5rem;
+}
+
+#root > footer p {
+  margin: 0;
+}
+
+#root > footer a {
+  color: #c6bfac;
 }
