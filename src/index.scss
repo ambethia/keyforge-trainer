@@ -1,0 +1,139 @@
+@font-face {
+  font-family: 'Teuton Fett';
+  src: url('./TeutonFett.otf') format('opentype');
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100vh;
+}
+
+body {
+  background-color: #81221c;
+  color: #c6bfac;
+  font-family: sans-serif;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  color: white;
+  text-shadow: -2px 5px 1px rgba(0, 0, 0, 0.25);
+  width: 300px;
+  height: 420px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  figure {
+    margin: 0;
+  }
+
+  h3 {
+    font-family: 'Teuton Fett', sans-serif;
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .preview {
+    width: 200px;
+    height: 200px;
+    border: thick solid white;
+    border-radius: 100px;
+    background-repeat: no-repeat;
+    box-shadow: -2px 5px 1px rgba(0, 0, 0, 0.25);
+  }
+
+  &.Action,
+  &.Creature {
+    .preview {
+      background-position: 50% 10%;
+      background-size: 152%;
+    }
+  }
+
+  &.Artifact .preview {
+    background-position: 50% 26%;
+    background-size: 160%;
+  }
+
+  &.Upgrade .preview {
+    background-position: 50% 81%;
+    background-size: 146%;
+  }
+
+  .front {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    img {
+      opacity: 0;
+      border-radius: 22px;
+      filter: blur(22px);
+      transform: scale(0) rotate(45deg);
+      transition: all 200ms ease-out;
+    }
+  }
+
+  &.revealed {
+    .front img {
+      box-shadow: 0 0 10px black;
+      opacity: 1;
+      filter: blur(0);
+      transform: scale(1) rotate(0deg);
+      transition: all 350ms ease-in;
+
+      &:hover {
+        box-shadow: 0 0 30px black;
+      }
+    }
+  }
+}
+
+.splash {
+  font-size: 1.2rem;
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    min-height: 25vh;
+  }
+
+  footer {
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    padding: 0.5rem;
+  }
+
+  footer p {
+    margin: 0;
+  }
+
+  footer a {
+    color: #c6bfac;
+  }
+}
+
+.button {
+  color: white;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+  border: thick solid #c6bfac;
+  font-size: 1.5rem;
+  background-color: darken(#c6bfac, 20%);
+  font-family: 'Teuton Fett', sans-serif;
+  padding: 0.5rem;
+  border-radius: 2px;
+}

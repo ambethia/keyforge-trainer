@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import _ from 'lodash'
+import cards from './cards.json'
+
+window.cards = cards
 
 class Card extends Component {
   state = {
@@ -27,7 +31,8 @@ class Card extends Component {
   }
 
   render() {
-    const { card_title, card_type, front_image } = this.props
+    const card_number = parseInt(this.props.match.params.card_number, 10)
+    const { card_title, card_type, front_image } = _.find(cards, { card_number })
     return (
       <div onClick={this.handleNext} className={`card ${this.state.revealed && 'revealed'} ${card_type}`}>
         <h3>{card_title}</h3>

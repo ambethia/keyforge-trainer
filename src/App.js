@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { Router, Route, Switch } from 'react-router-dom'
 import _ from 'lodash'
 import Card from './Card'
+import Splash from './Splash'
+import history from './history'
 import cards from './cards.json'
 
 const CARDS = _.shuffle(cards)
@@ -16,8 +19,12 @@ class App extends Component {
 
   next = () => {
     const { position } = this.state
-    if (position < CARDS.length) {
-      this.setState({ position: position + 1 }, this.preload)
+    const nextPosition = position + 1
+    if (nextPosition < CARDS.length) {
+      this.setState({ position: nextPosition }, () => {
+        history.push(`/${CARDS[nextPosition].card_number}`)
+        this.preload()
+      })
     }
   }
 
@@ -30,20 +37,13 @@ class App extends Component {
   }
 
   render() {
-    const { position } = this.state
     return (
-      <>
-        <Card {...CARDS[position]} next={this.next} />
-        <footer>
-          <p>
-            A <strong>Keyforge Trainer</strong> to practice learning cards by name and image.
-            <em>Click or tap space to advance.</em>
-            <br />
-            The project is <a href="https://github.com/ambethia/keyforge-trainer">open source</a>. All content is &copy;
-            2018 Fantasy Flight Games.
-          </p>
-        </footer>
-      </>
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/" render={props => <Splash {...props} next={this.next} />} />
+          <Route path="/:card_number" render={props => <Card {...props} next={this.next} />} />
+        </Switch>
+      </Router>
     )
   }
 }
