@@ -3,6 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom'
 import _ from 'lodash'
 import Card from './Card'
 import Splash from './Splash'
+import Search from './Search'
 import history from './history'
 import cards from './cards.json'
 
@@ -41,6 +42,7 @@ class App extends Component {
       <Router history={history}>
         <Switch>
           <Route exact path="/" render={props => <Splash {...props} next={this.next} />} />
+          <Route path="/search" component={Search} />} />
           <Route path="/:card_number" render={props => <Card {...props} next={this.next} />} />
         </Switch>
       </Router>

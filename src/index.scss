@@ -1,13 +1,12 @@
 @font-face {
-  font-family: 'Teuton Fett';
-  src: url('./TeutonFett.otf') format('opentype');
+  font-family: "Teuton Fett";
+  src: url("./TeutonFett.otf") format("opentype");
 }
 
 html,
 body,
 #root {
   margin: 0;
-  height: 100vh;
 }
 
 body {
@@ -16,10 +15,16 @@ body {
   font-family: sans-serif;
 }
 
-#root {
+a {
+  color: #c6bfac;
+  font-weight: bold;
+}
+
+.card-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .card {
@@ -38,7 +43,7 @@ body {
   }
 
   h3 {
-    font-family: 'Teuton Fett', sans-serif;
+    font-family: "Teuton Fett", sans-serif;
     font-size: 36px;
     text-align: center;
   }
@@ -99,32 +104,25 @@ body {
   }
 }
 
-.splash {
+.hero {
   font-size: 1.2rem;
-  .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 
-    width: 100%;
-    min-height: 25vh;
-  }
+  width: 100%;
+  min-height: 80vh;
+}
 
-  footer {
-    font-size: 12px;
-    position: absolute;
-    bottom: 0;
-    padding: 0.5rem;
-  }
+footer {
+  font-size: 12px;
+  padding: 0.5rem;
+  text-align: center;
+}
 
-  footer p {
-    margin: 0;
-  }
-
-  footer a {
-    color: #c6bfac;
-  }
+footer p {
+  margin: 0;
 }
 
 .button {
@@ -133,7 +131,57 @@ body {
   border: thick solid #c6bfac;
   font-size: 1.5rem;
   background-color: darken(#c6bfac, 20%);
-  font-family: 'Teuton Fett', sans-serif;
+  font-family: "Teuton Fett", sans-serif;
   padding: 0.5rem;
   border-radius: 2px;
+}
+
+.search {
+  h1,
+  h2 {
+    font-family: "Teuton Fett", sans-serif;
+  }
+
+  margin: 1rem;
+
+  label {
+    display: inline-block;
+    width: 4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+
+  input[type="text"] {
+    font-size: 1rem;
+    padding: 5px;
+    width: 12rem;
+  }
+
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style: none;
+    justify-content: space-evenly;
+    position: relative;
+
+    li {
+      margin: 10px;
+      &:hover {
+        z-index: 500;
+      }
+
+      img {
+        box-shadow: 0 0 10px black;
+        border-radius: 22px;
+        transform: scale(1);
+        transition: all 200ms ease;
+        &:hover {
+          box-shadow: 0 0 30px black;
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
 }

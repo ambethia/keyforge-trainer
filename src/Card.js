@@ -34,12 +34,14 @@ class Card extends Component {
     const card_number = parseInt(this.props.match.params.card_number, 10)
     const { card_title, card_type, front_image } = _.find(cards, { card_number })
     return (
-      <div onClick={this.handleNext} className={`card ${this.state.revealed && 'revealed'} ${card_type}`}>
-        <h3>{card_title}</h3>
-        <figure className="preview" style={{ backgroundImage: `url(${front_image})` }} />
-        <figure className="front">
-          <img src={front_image} alt="" height="420" width="300" />
-        </figure>
+      <div className="card-container">
+        <div onClick={this.handleNext} className={`card ${this.state.revealed && 'revealed'} ${card_type}`}>
+          <h3>{card_title}</h3>
+          <figure className="preview" style={{ backgroundImage: `url(${front_image})` }} />
+          <figure className="front">
+            <img src={front_image} alt="" height="420" width="300" />
+          </figure>
+        </div>
       </div>
     )
   }

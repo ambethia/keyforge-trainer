@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import Layout from './Layout'
 
 const Splash = props => (
-  <div className="splash">
+  <Layout>
     <section className="hero">
       <p>
         A <strong>Keyforge Trainer</strong> to practice learning cards by name and image.
@@ -9,14 +11,11 @@ const Splash = props => (
       <button className="button" onClick={props.next}>
         Begin
       </button>
-    </section>
-    <footer>
       <p>
-        The project is <a href="https://github.com/ambethia/keyforge-trainer">open source</a>. All content is &copy;
-        2018 Fantasy Flight Games.
+        Also, <Link to="/search">search</Link>.
       </p>
-    </footer>
-  </div>
+    </section>
+  </Layout>
 )
 
 export default Splash
